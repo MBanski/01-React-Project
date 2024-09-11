@@ -4,8 +4,9 @@ import CoreConcept from "./components/CoreConcept.js";
 import TabButton from "./components/TabButton.js";
 
 function App() {
-  function handleSelect() {
-    console.log("hello world");
+  function handleSelect(selectedButton) {
+    //selectedButton => 'components', 'JSX', 'Props', 'State'
+    console.log(selectedButton);
   }
 
   return (
@@ -31,10 +32,12 @@ function App() {
           <menu>
             {/* IMPORTANT - We can pass functions as props (we pass a  pointer to a function as a prop, this function 
               can then be executed in the receiving component even when the function is not located in the same component file  ) */}
-            <TabButton onSelect={handleSelect}>Components</TabButton>
-            <TabButton onSelect={handleSelect}>JSX</TabButton>
-            <TabButton onSelect={handleSelect}>Props</TabButton>
-            <TabButton onSelect={handleSelect}>State</TabButton>
+            <TabButton onSelect={() => handleSelect("component")}>
+              Components
+            </TabButton>
+            <TabButton onSelect={() => handleSelect("jsx")}>JSX</TabButton>
+            <TabButton onSelect={() => handleSelect("props")}>Props</TabButton>
+            <TabButton onSelect={() => handleSelect("state")}>State</TabButton>
           </menu>
         </section>
       </main>
