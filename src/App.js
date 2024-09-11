@@ -21,12 +21,14 @@ const Header = () => {
   );
 };
 
-const CoreConcept = (props) => {
+// Using Destructoring to get image, title, descriptio
+// this prevents us from having to use props.image, props.title...
+const CoreConcept = ({ image, title, description }) => {
   return (
     <li>
-      <img src={props.image} alt={props.title}></img>
-      <h3>{props.title}</h3>
-      <p>{props.description}</p>
+      <img src={image} alt={title}></img>
+      <h3>{title}</h3>
+      <p>{description}</p>
     </li>
   );
 };
