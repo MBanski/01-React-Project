@@ -6,7 +6,7 @@ const genRandomInt = (max) => {
   return Math.floor(Math.random() * (max + 1));
 };
 
-const Header = () => {
+export default function Header() {
   const description = readDescription[genRandomInt(2)];
   return (
     <header>
@@ -18,6 +18,4 @@ const Header = () => {
       </p>
     </header>
   );
-};
-
-export default Header;
+}
