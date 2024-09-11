@@ -29,6 +29,8 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
+            {/* IMPORTANT - We can pass functions as props (we pass a  pointer to a function as a prop, this function 
+              can then be executed in the receiving component even when the function is not located in the same component file  ) */}
             <TabButton onSelect={handleSelect}>Components</TabButton>
             <TabButton onSelect={handleSelect}>JSX</TabButton>
             <TabButton onSelect={handleSelect}>Props</TabButton>
