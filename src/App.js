@@ -1,12 +1,23 @@
+import { useState } from "react";
 import { CORE_CONCEPTS } from "./data";
 import Header from "./components/Header/Header.js";
 import CoreConcept from "./components/CoreConcept.js";
 import TabButton from "./components/TabButton.js";
 
 function App() {
+  //useState always returns and array with exactly 2 elements
+
+  //The first element is the Current state value
+
+  //The second element is always a function used to update
+  //the first element and tells react to re-execture the component
+
+  const [selectedTopic, setSelectedTopic] = useState("Please click a button!");
+
   function handleSelect(selectedButton) {
+    setSelectedTopic(selectedButton);
     //selectedButton => 'components', 'JSX', 'Props', 'State'
-    console.log(selectedButton);
+    console.log(selectedTopic);
   }
 
   return (
@@ -39,6 +50,7 @@ function App() {
             <TabButton onSelect={() => handleSelect("props")}>Props</TabButton>
             <TabButton onSelect={() => handleSelect("state")}>State</TabButton>
           </menu>
+          {selectedTopic}
         </section>
       </main>
     </div>
