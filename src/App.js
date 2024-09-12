@@ -57,12 +57,30 @@ function App() {
           <menu>
             {/* IMPORTANT - We can pass functions as props (we pass a  pointer to a function as a prop, this function 
               can then be executed in the receiving component even when the function is not located in the same component file  ) */}
-            <TabButton onSelect={() => handleSelect("components")}>
+            <TabButton
+              isSelected={selectedTopic === "components"}
+              onSelect={() => handleSelect("components")}
+            >
               Components
             </TabButton>
-            <TabButton onSelect={() => handleSelect("jsx")}>JSX</TabButton>
-            <TabButton onSelect={() => handleSelect("props")}>Props</TabButton>
-            <TabButton onSelect={() => handleSelect("state")}>State</TabButton>
+            <TabButton
+              isSelected={selectedTopic === "jsx"}
+              onSelect={() => handleSelect("jsx")}
+            >
+              JSX
+            </TabButton>
+            <TabButton
+              isSelected={selectedTopic === "props"}
+              onSelect={() => handleSelect("props")}
+            >
+              Props
+            </TabButton>
+            <TabButton
+              isSelected={selectedTopic === "state"}
+              onSelect={() => handleSelect("state")}
+            >
+              State
+            </TabButton>
           </menu>
           {tabContent}
         </section>
