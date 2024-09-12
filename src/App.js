@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CORE_CONCEPTS } from "./data";
+import { CORE_CONCEPTS, EXAMPLES } from "./data";
 import Header from "./components/Header/Header.js";
 import CoreConcept from "./components/CoreConcept.js";
 import TabButton from "./components/TabButton.js";
@@ -12,7 +12,7 @@ function App() {
   //The second element is always a function used to update
   //the first element and tells react to re-execture the component
 
-  const [selectedTopic, setSelectedTopic] = useState("Please click a button!");
+  const [selectedTopic, setSelectedTopic] = useState("components");
 
   function handleSelect(selectedButton) {
     setSelectedTopic(selectedButton);
@@ -43,14 +43,20 @@ function App() {
           <menu>
             {/* IMPORTANT - We can pass functions as props (we pass a  pointer to a function as a prop, this function 
               can then be executed in the receiving component even when the function is not located in the same component file  ) */}
-            <TabButton onSelect={() => handleSelect("component")}>
+            <TabButton onSelect={() => handleSelect("components")}>
               Components
             </TabButton>
             <TabButton onSelect={() => handleSelect("jsx")}>JSX</TabButton>
             <TabButton onSelect={() => handleSelect("props")}>Props</TabButton>
             <TabButton onSelect={() => handleSelect("state")}>State</TabButton>
           </menu>
-          {selectedTopic}
+          <div id="tab-content">
+            <h3>{EXAMPLES[selectedTopic].title}</h3>
+            <p>{EXAMPLES[selectedTopic].description}</p>
+            <pre>
+              <code>{EXAMPLES[selectedTopic].code}</code>
+            </pre>
+          </div>
         </section>
       </main>
     </div>
